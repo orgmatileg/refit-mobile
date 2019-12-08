@@ -1,23 +1,33 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Card, CardHeader, Layout, Text } from "@ui-kitten/components";
 
 export default function Screen(props) {
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => props.navigation.navigate("BodyWeightTrackerScreen")}
-      />
-    </View>
+    <Layout style={{ padding: 13 }}>
+      <Card
+        style={{ marginBottom: 15 }}
+        header={() => <CardHeader title="Weight Tracker" />}
+      >
+        <Text>87.3 kg / 23 December 2019</Text>
+      </Card>
+      <Card
+        style={{ marginBottom: 15 }}
+        header={() => <CardHeader title="Todo" />}
+      >
+        <Text>You have 7 item.</Text>
+      </Card>
+      <Card
+        style={{ marginBottom: 15 }}
+        header={() => <CardHeader title="Calorie" />}
+      >
+        <Text>Already eat 1500 cal. You still have 600</Text>
+      </Card>
+      <Card
+        style={{ marginBottom: 15 }}
+        header={() => <CardHeader title="Weight Tracker" />}
+      >
+        <Text>wew</Text>
+      </Card>
+    </Layout>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

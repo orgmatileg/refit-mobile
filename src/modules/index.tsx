@@ -6,7 +6,9 @@ import colors from "../constants/colors";
 
 // Screen
 import HomeScreen from "./Home";
-import { BodyWeightTrackerNavigation } from "./BodyWeightTracker";
+import BodyWeightTrackerScreen from "./BodyWeightTracker";
+import BodyWeightTrackerScreenAdd from "./BodyWeightTrackerAdd";
+import TodoScreen from "./Todo";
 
 // Stack Navigation
 const HomeStack = createStackNavigator(
@@ -16,11 +18,44 @@ const HomeStack = createStackNavigator(
       navigationOptions: {
         headerTitle: "Home"
       }
-    },
-    BodyWeightTrackerScreen: BodyWeightTrackerNavigation
+    }
   },
   {
     initialRouteName: "HomeScreen",
+    defaultNavigationOptions: {
+      headerStyle: { backgroundColor: colors.PRIMARY },
+      headerTitleStyle: {
+        color: "#fff"
+      },
+      headerTintColor: colors.SECONDARY
+    }
+  }
+);
+
+const BodyWeightTrackerStack = createStackNavigator(
+  {
+    // Body Weight Screen
+    BodyWeightTrackerScreen: BodyWeightTrackerScreen,
+    BodyWeightTrackerScreenAdd: BodyWeightTrackerScreenAdd
+  },
+  {
+    initialRouteName: "BodyWeightTrackerScreen",
+    defaultNavigationOptions: {
+      headerStyle: { backgroundColor: colors.PRIMARY },
+      headerTitleStyle: {
+        color: "#fff"
+      },
+      headerTintColor: colors.SECONDARY
+    }
+  }
+);
+
+const TodoStack = createStackNavigator(
+  {
+    TodoScreen: TodoScreen
+  },
+  {
+    initialRouteName: "TodoScreen",
     defaultNavigationOptions: {
       headerStyle: { backgroundColor: colors.PRIMARY },
       headerTitleStyle: {
@@ -45,8 +80,8 @@ export default createBottomTabNavigator(
         )
       }
     },
-    Feeds: {
-      screen: HomeStack,
+    BodyWeightTracker: {
+      screen: BodyWeightTrackerStack,
       navigationOptions: {
         tabBarIcon: (
           <FontAwesome5
@@ -81,8 +116,8 @@ export default createBottomTabNavigator(
         )
       }
     },
-    Profiles: {
-      screen: HomeStack,
+    Todo: {
+      screen: TodoStack,
       navigationOptions: {
         tabBarIcon: (
           <FontAwesome5
