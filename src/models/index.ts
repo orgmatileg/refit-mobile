@@ -1,4 +1,3 @@
-import { action } from "easy-peasy";
 import todoModel, { TodoModel } from "./Todo.model";
 import bodyWeightTrackerModel, {
   BodyWeightTrackerModel

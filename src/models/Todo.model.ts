@@ -23,7 +23,7 @@ const todoModel: TodoModel = {
   ],
   datasDone: [],
   add: action((state, payload) => {
-    // state.items.push(payload);
+    state.datas.push(payload);
   }),
   addToDone: action((state, payload) => {
     state.datas = state.datas.filter(data => data.title != payload.title);

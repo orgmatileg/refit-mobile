@@ -15,6 +15,7 @@ const App: React.FC = props => {
   const handleNavigationChange = nav => {
     // console.log(props);
   };
+
   return (
     <React.Fragment>
       <StoreProvider store={store}>
